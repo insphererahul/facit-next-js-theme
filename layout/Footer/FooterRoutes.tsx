@@ -1,5 +1,3 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable no-unsafe-optional-chaining */
 import React from 'react';
 import { useRouter } from 'next/router';
 import footers from '../../routes/footerRoutes';
