@@ -1,0 +1,45 @@
+.#{$rt-namespace}__toast {
+	position: relative;
+
+	/* webkit only issue #791 */
+	z-index: 0;
+	box-sizing: border-box;
+	margin-bottom: 1rem;
+	cursor: default;
+	direction: ltr;
+
+	&--rtl {
+		direction: rtl;
+	}
+
+	&--close-on-click {
+		cursor: pointer;
+
+		.toast-header {
+			padding-right: 2.5rem;
+		}
+	}
+
+	.btn-close {
+		position: absolute;
+		top: var(--bs-toast-padding-y);
+		right: var(--bs-toast-padding-x);
+	}
+}
+
+.#{$rt-namespace}--animate {
+	animation-duration: 0.7s;
+	animation-fill-mode: both;
+}
+
+.#{$rt-namespace}--animate-icon {
+	animation-duration: 0.3s;
+	animation-fill-mode: both;
+}
+
+@media #{$rt-mobile} {
+	.#{$rt-namespace}__toast {
+		margin-bottom: 0;
+		border-radius: 0;
+	}
+}
