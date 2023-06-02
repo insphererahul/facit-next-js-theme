@@ -106,6 +106,12 @@ Icon.propTypes = {
 	]),
 	forceFamily: PropTypes.oneOf([null, 'custom', 'material']),
 };
+Icon.defaultProps = {
+	className: undefined,
+	color: undefined,
+	size: null,
+	forceFamily: null,
+};
 Icon.displayName = 'Icon';
 
 export default memo(Icon);

@@ -32,7 +32,7 @@ const PaginationButtons: FC<IPaginationButtonsProps> = ({
 	perPage,
 	setPerPage,
 	data,
-	label = 'items',
+	label,
 }) => {
 	const totalItems = data.length;
 	const totalPage = Math.ceil(totalItems / perPage);

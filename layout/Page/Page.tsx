@@ -8,7 +8,7 @@ export interface IPageProps {
 	className?: string;
 }
 const Page = forwardRef<HTMLDivElement, IPageProps>(
-	({ children, className, container = 'xxl', ...props }, ref) => {
+	({ children, className, container, ...props }, ref) => {
 		return (
 			<div
 				ref={ref}
@@ -31,6 +31,10 @@ Page.propTypes = {
 		PropTypes.oneOf([null, 'sm', 'md', 'lg', 'xl', 'xxl', 'fluid']),
 	]),
 	className: PropTypes.string,
+};
+Page.defaultProps = {
+	container: 'xxl',
+	className: undefined,
 };
 
 export default Page;

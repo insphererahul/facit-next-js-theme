@@ -36,9 +36,9 @@ interface IReactCreditCardsContainerProps extends HTMLAttributes<HTMLDivElement>
 }
 const ReactCreditCardsContainer: FC<IReactCreditCardsContainerProps> = ({
 	className,
-	is3dShadow = true,
+	is3dShadow,
 	issuer,
-	scale = 0,
+	scale,
 	children,
 	...props
 }) => {
@@ -75,6 +75,12 @@ ReactCreditCardsContainer.propTypes = {
 	is3dShadow: PropTypes.bool,
 	issuer: PropTypes.string,
 	scale: PropTypes.number,
+};
+ReactCreditCardsContainer.defaultProps = {
+	className: undefined,
+	is3dShadow: true,
+	issuer: undefined,
+	scale: 0,
 };
 
 export default ReactCreditCardsContainer;

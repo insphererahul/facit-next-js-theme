@@ -41,20 +41,17 @@ WizardItem.propTypes = {
 	title: PropTypes.string,
 	className: PropTypes.string,
 };
+WizardItem.defaultProps = {
+	className: undefined,
+	title: undefined,
+};
 
 interface IWizardProps extends ICardProps {
 	children: ReactElement<IWizardItemProps> | ReactElement<IWizardItemProps>[];
 	color?: TColor;
 	isHeader?: boolean | 'withButton';
 }
-const Wizard: FC<IWizardProps> = ({
-	children,
-	onSubmit,
-	isHeader = false,
-	color = 'primary',
-	stretch,
-	...props
-}) => {
+const Wizard: FC<IWizardProps> = ({ children, onSubmit, isHeader, color, stretch, ...props }) => {
 	const { themeStatus } = useDarkMode();
 	const [activeItemIndex, setActiveItemIndex] = useState(0);
 
@@ -190,6 +187,11 @@ Wizard.propTypes = {
 	onSubmit: PropTypes.func.isRequired,
 	// @ts-ignore
 	stretch: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['full', 'semi'])]),
+};
+Wizard.defaultProps = {
+	isHeader: false,
+	color: 'primary',
+	stretch: undefined,
 };
 
 export default Wizard;

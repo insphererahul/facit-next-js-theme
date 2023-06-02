@@ -1,6 +1,8 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { demoPagesMenu, pageLayoutTypesPagesMenu } from '../menu';
-import DefaultAside from '../pages/_layout/_asides/DefaultAside';
+
+const DefaultAside = dynamic(() => import('../pages/_layout/_asides/DefaultAside'));
 
 const asides = [
 	{ path: demoPagesMenu.login.path, element: null, exact: true },

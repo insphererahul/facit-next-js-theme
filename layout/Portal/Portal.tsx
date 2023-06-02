@@ -9,7 +9,7 @@ interface IPortalProps {
 	id?: string;
 }
 // @ts-ignore
-const Portal: FC<IPortalProps> = ({ id = 'portal-root', children }) => {
+const Portal: FC<IPortalProps> = ({ id, children }) => {
 	const { fullScreenStatus } = useContext(ThemeContext);
 
 	const { mounted } = useMounted();
@@ -25,6 +25,9 @@ const Portal: FC<IPortalProps> = ({ id = 'portal-root', children }) => {
 Portal.propTypes = {
 	children: PropTypes.node.isRequired,
 	id: PropTypes.string,
+};
+Portal.defaultProps = {
+	id: 'portal-root',
 };
 
 export default Portal;

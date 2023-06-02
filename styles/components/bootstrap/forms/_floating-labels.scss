@@ -1,20 +1,6 @@
-// stylelint-disable selector-max-specificity
-// stylelint-disable no-descending-specificity
 .form-floating {
+
 	&:not(.form-control:disabled)::before {
 		content: none;
 	}
-
-	> .form-control:focus,
-	> .form-control:not(:placeholder-shown),
-	> .form-control-plaintext,
-	> .form-select {
-		~ label {
-			&::after {
-				background: none;
-			}
-		}
-	}
 }
-// stylelint-enable selector-max-specificity
-// stylelint-enable no-descending-specificity

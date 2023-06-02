@@ -25,7 +25,7 @@ const PrismCode: FC<IPrismCodeProps> = (props) => {
 		return () => {};
 	}, [ref]);
 
-	const { code, plugins, language, className, style, rounded = 2 } = props;
+	const { code, plugins, language, className, style, rounded } = props;
 	return (
 		<pre
 			className={classNames('prismjs-code', plugins, className, {
@@ -58,6 +58,12 @@ PrismCode.propTypes = {
 	]),
 	// eslint-disable-next-line react/forbid-prop-types
 	style: PropTypes.object,
+};
+PrismCode.defaultProps = {
+	plugins: null,
+	className: undefined,
+	rounded: 2,
+	style: undefined,
 };
 
 export default PrismCode;

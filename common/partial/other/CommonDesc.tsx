@@ -9,7 +9,7 @@ interface ICommonDescProps {
 	className?: string;
 	color?: TColor;
 }
-const CommonDesc: FC<ICommonDescProps> = ({ children, className, color = 'warning' }) => {
+const CommonDesc: FC<ICommonDescProps> = ({ children, className, color }) => {
 	return (
 		<Alert
 			color={color}
@@ -35,6 +35,10 @@ CommonDesc.propTypes = {
 		'light',
 		'dark',
 	]),
+};
+CommonDesc.defaultProps = {
+	className: undefined,
+	color: 'warning',
 };
 
 export default CommonDesc;

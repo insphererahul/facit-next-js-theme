@@ -21,6 +21,9 @@ HeaderLeft.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
 };
+HeaderLeft.defaultProps = {
+	className: undefined,
+};
 
 interface IHeaderRightProps {
 	children: ReactNode;
@@ -42,17 +45,16 @@ HeaderRight.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
 };
+HeaderRight.defaultProps = {
+	className: undefined,
+};
 
 interface IHeaderProps {
 	children: ReactElement<IHeaderLeftProps> | ReactElement<IHeaderRightProps> | ReactNode;
 	hasLeftMobileMenu?: boolean;
 	hasRightMobileMenu?: boolean;
 }
-const Header: FC<IHeaderProps> = ({
-	children,
-	hasLeftMobileMenu = true,
-	hasRightMobileMenu = true,
-}) => {
+const Header: FC<IHeaderProps> = ({ children, hasLeftMobileMenu, hasRightMobileMenu }) => {
 	const { themeStatus } = useDarkMode();
 	const { mounted } = useMounted();
 
@@ -179,6 +181,10 @@ Header.propTypes = {
 	children: PropTypes.node.isRequired,
 	hasLeftMobileMenu: PropTypes.bool,
 	hasRightMobileMenu: PropTypes.bool,
+};
+Header.defaultProps = {
+	hasLeftMobileMenu: true,
+	hasRightMobileMenu: true,
 };
 
 export default Header;

@@ -29,5 +29,9 @@ FormText.propTypes = {
 	 */
 	children: PropTypes.node.isRequired,
 };
+FormText.defaultProps = {
+	id: undefined,
+	className: undefined,
+};
 
 export default FormText;

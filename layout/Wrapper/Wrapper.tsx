@@ -30,6 +30,9 @@ WrapperContainer.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
 };
+WrapperContainer.defaultProps = {
+	className: undefined,
+};
 
 interface IWrapper {
 	children: ReactNode;

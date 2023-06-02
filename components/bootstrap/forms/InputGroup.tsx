@@ -23,7 +23,7 @@ interface IInputGroupTextProps extends HTMLAttributes<HTMLElement> {
 	htmlFor?: string;
 }
 export const InputGroupText = forwardRef<HTMLDivElement, IInputGroupTextProps>(
-	({ tag = 'span', id, className, children, ...props }, ref) => {
+	({ tag, id, className, children, ...props }, ref) => {
 		return (
 			<TagWrapper
 				tag={tag}
@@ -47,6 +47,11 @@ InputGroupText.propTypes = {
 	id: PropTypes.string,
 	className: PropTypes.string,
 };
+InputGroupText.defaultProps = {
+	tag: 'span',
+	id: undefined,
+	className: undefined,
+};
 
 type TInputGroupChildren =
 	| ReactElement<IInputGroupTextProps>[]
@@ -61,11 +66,13 @@ interface IInputGroupProps extends HTMLAttributes<HTMLDivElement> {
 	size?: 'sm' | 'lg';
 }
 const InputGroup = forwardRef<HTMLDivElement, IInputGroupProps>(
-	({ id, className, children, isWrap = true, size, ...props }, ref) => {
+	({ id, className, children, isWrap, size, ...props }, ref) => {
 		let IS_VALID = false;
 		let IS_TOUCHED = false;
-		let INVALID_FEEDBACK;
-		let VALID_FEEDBACK;
+		// eslint-disable-next-line no-undef-init
+		let INVALID_FEEDBACK = undefined;
+		// eslint-disable-next-line no-undef-init
+		let VALID_FEEDBACK = undefined;
 		let IS_TOOLTIP_FEEDBACK = false;
 
 		const validClass = (child: TInputGroupChildren) => {
@@ -148,6 +155,12 @@ InputGroup.propTypes = {
 	 */
 	isWrap: PropTypes.bool,
 	size: PropTypes.oneOf(['sm', 'lg']),
+};
+InputGroup.defaultProps = {
+	id: undefined,
+	className: undefined,
+	isWrap: true,
+	size: undefined,
 };
 
 export default InputGroup;

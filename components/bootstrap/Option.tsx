@@ -25,6 +25,10 @@ Option.propTypes = {
 	disabled: PropTypes.bool,
 	ariaLabelledby: PropTypes.string,
 };
+Option.defaultProps = {
+	disabled: false,
+	ariaLabelledby: null,
+};
 
 export interface IOptionsProps {
 	list: {

@@ -57,5 +57,16 @@ Label.propTypes = {
 	ariaLabelledby: PropTypes.string,
 	ariaLabel: PropTypes.string,
 };
+Label.defaultProps = {
+	htmlFor: undefined,
+	className: undefined,
+	children: null,
+	isColForLabel: false,
+	isHidden: false,
+	size: null,
+	title: undefined,
+	ariaLabelledby: undefined,
+	ariaLabel: undefined,
+};
 
 export default Label;

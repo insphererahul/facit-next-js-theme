@@ -16,7 +16,7 @@ const CommonCodePreview: FC<ICommonCodePreviewProps> = ({
 	children,
 	className,
 	code,
-	language = 'jsx',
+	language,
 }) => {
 	if (children) {
 		return (
@@ -58,6 +58,12 @@ CommonCodePreview.propTypes = {
 	className: PropTypes.string,
 	code: PropTypes.string,
 	language: PropTypes.string,
+};
+CommonCodePreview.defaultProps = {
+	children: null,
+	className: undefined,
+	code: undefined,
+	language: 'jsx',
 };
 
 export default CommonCodePreview;

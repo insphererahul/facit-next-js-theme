@@ -106,9 +106,7 @@ ToastContainer.propTypes = {
 	children: PropTypes.node.isRequired,
 };
 
-// @ts-ignore
-// eslint-disable-next-line react/prop-types,@typescript-eslint/no-unused-vars
-export const ToastCloseButton = ({ closeToast }) => (
+export const ToastCloseButton = () => (
 	<button type='button' className='btn-close' aria-label='Close' />
 );
 

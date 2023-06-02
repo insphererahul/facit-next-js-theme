@@ -1,9 +1,9 @@
 import React from 'react';
 import type { NextPage } from 'next';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import classNames from 'classnames';
-import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import useTourStep from '../../../hooks/useTourStep';
 import useDarkMode from '../../../hooks/useDarkMode';

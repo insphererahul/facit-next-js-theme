@@ -12,7 +12,7 @@ interface ITimelineItemProps {
 	label: string;
 }
 export const TimelineItem = forwardRef<HTMLDivElement, ITimelineItemProps>(
-	({ className, color = 'primary', label, children, ...props }, ref) => {
+	({ className, color, label, children, ...props }, ref) => {
 		return (
 			// eslint-disable-next-line react/jsx-props-no-spreading
 			<div ref={ref} className={classNames('timeline-item', className)} {...props}>
@@ -45,6 +45,10 @@ TimelineItem.propTypes = {
 	]),
 	label: PropTypes.string.isRequired,
 };
+TimelineItem.defaultProps = {
+	className: undefined,
+	color: 'primary',
+};
 
 interface ITimelineProps {
 	children: ReactNode;
@@ -64,6 +68,9 @@ Timeline.displayName = 'Timeline';
 Timeline.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
+};
+Timeline.defaultProps = {
+	className: undefined,
 };
 
 export default Timeline;

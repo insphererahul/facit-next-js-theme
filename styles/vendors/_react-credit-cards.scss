@@ -119,8 +119,11 @@ $rccs-visaelectron-logo: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBl
 			transform: rotateY(180deg);
 
 			.rccs__issuer {
+				top: auto;
+				right: auto;
+				bottom: 5%;
+				left: 50%;
 				background-position: bottom center;
-				inset: auto auto 5% 50%;
 				opacity: 0.6;
 				transform: translateX(-50%);
 			}

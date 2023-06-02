@@ -28,9 +28,9 @@ interface IDropdownToggleProps {
 }
 export const DropdownToggle: FC<IDropdownToggleProps> = ({
 	children,
-	isOpen = false,
-	setIsOpen = () => {},
-	hasIcon = true,
+	isOpen,
+	setIsOpen,
+	hasIcon,
 }) => {
 	const dropdownButtonRef = useRef(null);
 
@@ -85,6 +85,11 @@ DropdownToggle.propTypes = {
 	setIsOpen: PropTypes.func,
 	hasIcon: PropTypes.bool,
 };
+DropdownToggle.defaultProps = {
+	isOpen: false,
+	setIsOpen: () => {},
+	hasIcon: true,
+};
 
 interface IDropdownMenuProps extends HTMLAttributes<HTMLUListElement> {
 	isOpen?: boolean;
@@ -102,15 +107,15 @@ interface IDropdownMenuProps extends HTMLAttributes<HTMLUListElement> {
 	isCloseAfterLeave?: boolean;
 }
 export const DropdownMenu: FC<IDropdownMenuProps> = ({
-	isOpen = false,
-	setIsOpen = () => {},
+	isOpen,
+	setIsOpen,
 	children,
 	className,
-	isAlignmentEnd = false,
+	isAlignmentEnd,
 	breakpoint,
 	size,
 	direction,
-	isCloseAfterLeave = true,
+	isCloseAfterLeave,
 	...props
 }) => {
 	const dropdownListRef = useRef(null);
@@ -189,6 +194,16 @@ DropdownMenu.propTypes = {
 	direction: PropTypes.string,
 	isCloseAfterLeave: PropTypes.bool,
 };
+DropdownMenu.defaultProps = {
+	isOpen: false,
+	setIsOpen: () => {},
+	className: undefined,
+	isAlignmentEnd: false,
+	breakpoint: null,
+	size: null,
+	direction: null,
+	isCloseAfterLeave: true,
+};
 DropdownMenu.displayName = 'DropdownMenu';
 
 interface IItemWrapperProps {
@@ -212,6 +227,9 @@ ItemWrapper.displayName = 'ItemWrapper';
 ItemWrapper.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
+};
+ItemWrapper.defaultProps = {
+	className: undefined,
 };
 
 interface IDropdownItemProps extends HTMLAttributes<HTMLLIElement> {
@@ -289,6 +307,12 @@ DropdownItem.propTypes = {
 	isDivider: PropTypes.bool,
 	isText: PropTypes.bool,
 };
+DropdownItem.defaultProps = {
+	children: undefined,
+	isHeader: false,
+	isDivider: false,
+	isText: false,
+};
 
 export interface IDropdownProps {
 	tag?: ElementType;
@@ -300,11 +324,11 @@ export interface IDropdownProps {
 	className?: string;
 }
 const Dropdown: FC<IDropdownProps> = ({
-	tag: Tag = 'div',
+	tag: Tag,
 	children,
 	isOpen,
 	setIsOpen,
-	direction = 'down',
+	direction,
 	isButtonGroup,
 	className,
 }) => {
@@ -368,6 +392,15 @@ Dropdown.propTypes = {
 	 */
 	direction: PropTypes.oneOf(['up', 'end', 'down', 'start']),
 	isButtonGroup: PropTypes.bool,
+};
+Dropdown.defaultProps = {
+	tag: 'div',
+	isOpen: null,
+	// @ts-ignore
+	setIsOpen: null,
+	className: undefined,
+	direction: 'down',
+	isButtonGroup: false,
 };
 
 export default Dropdown;

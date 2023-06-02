@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { ApexOptions } from 'apexcharts';
 import { useFormik } from 'formik';
-import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import useDarkMode from '../../../hooks/useDarkMode';
 import showNotification from '../../../components/extras/showNotification';

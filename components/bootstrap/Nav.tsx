@@ -26,6 +26,9 @@ NavLinkDropdown.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
 };
+NavLinkDropdown.defaultProps = {
+	className: undefined,
+};
 
 interface INavItemProps extends HTMLAttributes<HTMLLIElement> {
 	children: ReactNode;
@@ -69,6 +72,11 @@ NavItem.propTypes = {
 	isActive: PropTypes.bool,
 	isDisable: PropTypes.bool,
 };
+NavItem.defaultProps = {
+	className: undefined,
+	isActive: false,
+	isDisable: false,
+};
 
 interface INavProps extends HTMLAttributes<HTMLElement> {
 	children: ReactElement<INavItemProps>[] | ReactNode[];
@@ -83,10 +91,10 @@ interface INavProps extends HTMLAttributes<HTMLElement> {
 const Nav = forwardRef<HTMLUListElement, INavProps>(
 	(
 		{
-			tag: Tag = 'ul',
+			tag: Tag,
 			children,
 			className,
-			design = 'pills',
+			design,
 			isFill,
 			isJustified,
 			isVertical,
@@ -130,6 +138,15 @@ Nav.propTypes = {
 	isJustified: PropTypes.bool,
 	isVertical: PropTypes.bool,
 	verticalBreakpoint: PropTypes.oneOf(['sm', 'md', 'lg', 'xl', 'xxl']),
+};
+Nav.defaultProps = {
+	className: undefined,
+	tag: 'ul',
+	design: 'pills',
+	isFill: false,
+	isJustified: false,
+	isVertical: false,
+	verticalBreakpoint: null,
 };
 
 export default Nav;

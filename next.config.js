@@ -24,7 +24,10 @@ const nextConfig = withInterceptStdout(
 		},
 		reactStrictMode: true,
 		swcMinify: true,
-		i18n
+		i18n,
+		webpack(config, options) {
+			return config
+		}
 	}),
 	(log) => (hideWarn.some((warn) => log.includes(warn)) ? '' : log),
 );

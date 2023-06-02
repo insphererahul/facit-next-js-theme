@@ -189,11 +189,14 @@
 
 .rdrDayNumber {
 	position: absolute;
+	top: 5px;
+	right: 0;
+	bottom: 5px;
+	left: 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	font-weight: 300;
-	inset: 5px 0;
 	outline: 0;
 }
 
@@ -242,8 +245,11 @@
 .rdrStartEdge,
 .rdrEndEdge {
 	position: absolute;
+	top: 5px;
+	right: 0;
+	bottom: 5px;
+	left: 0;
 	background: currentColor;
-	inset: 5px 0;
 }
 
 .rdrSelected {
@@ -316,9 +322,12 @@
 .rdrDayEndPreview {
 	position: absolute;
 	z-index: 1;
+	top: 3px;
+	right: 0;
+	bottom: 3px;
+	left: 0;
 	border: 0 solid currentColor;
 	background: rgba(255, 255, 255, 0.09);
-	inset: 3px 0;
 	pointer-events: none;
 }
 
@@ -435,11 +444,14 @@
 
 .rdrCalendarWrapper:not(.rdrDateRangeWrapper) .rdrDayHovered .rdrDayNumber::after {
 	position: absolute;
+	top: -2px;
+	right: 0;
+	bottom: -2px;
+	left: 0;
 	border: 1px solid currentColor;
 	background: transparent;
 	border-radius: 1.333em;
 	content: '';
-	inset: -2px 0;
 }
 
 .rdrDayPassive {

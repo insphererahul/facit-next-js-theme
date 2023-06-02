@@ -50,21 +50,19 @@
 	@each $state, $value in $theme-colors {
 		&-#{$state} {
 			&::before {
-				@include dark-mode {
-					filter: opacity(0.8) brightness(1.2) contrast(0.8);
-				}
-
 				background: var(--#{$prefix}#{$state}-bg-subtle);
 				filter: opacity(0.7) brightness(1) contrast(1.1);
+				@include dark-mode() {
+					filter: opacity(0.8) brightness(1.2) contrast(0.8);
+				}
 			}
 
 			&::after {
-				@include dark-mode {
-					filter: opacity(0.5) brightness(1) contrast(0.8);
-				}
-
 				background: var(--#{$prefix}#{$state}-bg-subtle);
 				filter: opacity(0.7) brightness(1) contrast(1.2);
+				@include dark-mode() {
+					filter: opacity(0.5) brightness(1) contrast(0.8);
+				}
 			}
 		}
 	}
@@ -75,12 +73,18 @@
 	top: 1rem;
 
 	&::before {
-		inset: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
 		transform: rotate(3deg);
 	}
 
 	&::after {
-		inset: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
 		transform: rotate(-3deg);
 	}
 }

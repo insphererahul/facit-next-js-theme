@@ -18,8 +18,8 @@ export const ChatAvatar: FC<IChatAvatarProps> = ({
 	className,
 	color,
 	unreadMessage,
-	isOnline = false,
-	size = 45,
+	isOnline,
+	size,
 	...props
 }) => {
 	return (
@@ -63,6 +63,14 @@ ChatAvatar.propTypes = {
 	isOnline: PropTypes.bool,
 	size: PropTypes.number,
 };
+ChatAvatar.defaultProps = {
+	src: undefined,
+	className: undefined,
+	color: undefined,
+	unreadMessage: undefined,
+	isOnline: false,
+	size: 45,
+};
 
 interface IChatListItemProps extends HTMLAttributes<HTMLDivElement> {
 	src: string;
@@ -80,14 +88,14 @@ interface IChatListItemProps extends HTMLAttributes<HTMLDivElement> {
 export const ChatListItem: FC<IChatListItemProps> = ({
 	src,
 	className,
-	isOnline = false,
-	color = 'primary',
-	size = 64,
+	isOnline,
+	color,
+	size,
 	name,
 	surname,
 	latestMessage,
 	unreadMessage,
-	isActive = false,
+	isActive,
 	lastSeenTime,
 	...props
 }) => {
@@ -163,6 +171,16 @@ ChatListItem.propTypes = {
 	isActive: PropTypes.bool,
 	lastSeenTime: PropTypes.string,
 };
+ChatListItem.defaultProps = {
+	className: undefined,
+	isOnline: false,
+	color: 'primary',
+	size: 64,
+	latestMessage: undefined,
+	unreadMessage: undefined,
+	isActive: false,
+	lastSeenTime: undefined,
+};
 
 interface IChatHeaderProps {
 	to: string;
@@ -186,7 +204,7 @@ interface IChatMessagesProps extends HTMLAttributes<HTMLDivElement> {
 	}[];
 	isReply?: boolean;
 }
-export const ChatMessages: FC<IChatMessagesProps> = ({ messages, isReply = false, ...props }) => {
+export const ChatMessages: FC<IChatMessagesProps> = ({ messages, isReply, ...props }) => {
 	return (
 		// eslint-disable-next-line react/jsx-props-no-spreading
 		<div className='chat-messages' {...props}>
@@ -210,6 +228,9 @@ ChatMessages.propTypes = {
 	).isRequired,
 	isReply: PropTypes.bool,
 };
+ChatMessages.defaultProps = {
+	isReply: false,
+};
 
 interface IChatGroupProps extends HTMLAttributes<HTMLDivElement> {
 	isReply?: boolean;
@@ -229,8 +250,9 @@ interface IChatGroupProps extends HTMLAttributes<HTMLDivElement> {
 	};
 }
 export const ChatGroup: FC<IChatGroupProps> = ({
-	isReply = false,
+	isReply,
 	messages,
+	isOnline,
 	color,
 	user,
 	...props
@@ -292,6 +314,11 @@ ChatGroup.propTypes = {
 		]),
 	}).isRequired,
 };
+ChatGroup.defaultProps = {
+	isReply: false,
+	isOnline: false,
+	color: undefined,
+};
 
 interface IChatProps {
 	children: ReactNode;
@@ -306,6 +333,9 @@ const Chat: FC<IChatProps> = ({ children, className }) => {
 Chat.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
+};
+Chat.defaultProps = {
+	className: undefined,
 };
 
 export default Chat;

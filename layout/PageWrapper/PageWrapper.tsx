@@ -15,7 +15,7 @@ interface IPageWrapperProps {
 	className?: string;
 }
 const PageWrapper = forwardRef<HTMLDivElement, IPageWrapperProps>(
-	({ isProtected = true, className, children }, ref) => {
+	({ isProtected, className, children }, ref) => {
 		const { user } = useContext(AuthContext);
 
 		// const navigate = useNavigate();
@@ -40,6 +40,10 @@ PageWrapper.propTypes = {
 	// @ts-ignore
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
+};
+PageWrapper.defaultProps = {
+	isProtected: true,
+	className: undefined,
 };
 
 export default PageWrapper;

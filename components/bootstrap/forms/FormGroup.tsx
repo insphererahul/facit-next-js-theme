@@ -22,7 +22,7 @@ interface IFormGroupProps extends HTMLAttributes<HTMLElement> {
 }
 const FormGroup: FC<IFormGroupProps> = ({
 	children,
-	tag = 'div',
+	tag,
 	className,
 	labelClassName,
 	childWrapperClassName,
@@ -96,6 +96,19 @@ FormGroup.propTypes = {
 	// @ts-ignore
 	// eslint-disable-next-line react/require-default-props
 	formText: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+};
+FormGroup.defaultProps = {
+	className: undefined,
+	labelClassName: undefined,
+	childWrapperClassName: undefined,
+	tag: 'div',
+	isFloating: false,
+	id: undefined,
+	label: undefined,
+	size: null,
+	isHiddenLabel: false,
+	isColForLabel: false,
+	formText: undefined,
 };
 
 export default FormGroup;

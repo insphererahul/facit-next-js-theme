@@ -40,17 +40,12 @@ const Popovers: FC<IPopoversProps> = ({
 	bodyClassName,
 	title,
 	desc,
-	placement = 'top',
-	flip = ['top', 'bottom'],
-	trigger = 'click',
-	delay = 0,
+	placement,
+	flip,
+	trigger,
+	delay,
 	isDisplayInline,
-	modifiers = {
-		name: 'example',
-		enabled: false,
-		phase: 'read',
-		fn: () => {},
-	},
+	modifiers,
 	...props
 }) => {
 	const [referenceElement, setReferenceElement] = useState<HTMLSpanElement | null>(null);
@@ -219,6 +214,23 @@ Popovers.propTypes = {
 	 */
 	// eslint-disable-next-line react/forbid-prop-types
 	modifiers: PropTypes.object,
+};
+Popovers.defaultProps = {
+	title: undefined,
+	desc: null,
+	placement: 'top',
+	flip: ['top', 'bottom'],
+	trigger: 'click',
+	delay: 0,
+	isDisplayInline: false,
+	className: undefined,
+	bodyClassName: null,
+	modifiers: {
+		name: 'example',
+		enabled: false,
+		phase: 'read',
+		fn: () => {},
+	},
 };
 
 export default Popovers;

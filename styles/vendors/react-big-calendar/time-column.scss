@@ -42,8 +42,11 @@
 
 	.rbc-events-container {
 		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
 		margin-right: 1rem;
-		inset: 0;
 
 		&.rbc-rtl {
 			right: 0;

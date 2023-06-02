@@ -279,5 +279,9 @@ CommonHeaderRight.propTypes = {
 	beforeChildren: PropTypes.node,
 	afterChildren: PropTypes.node,
 };
+CommonHeaderRight.defaultProps = {
+	beforeChildren: null,
+	afterChildren: null,
+};
 
 export default CommonHeaderRight;

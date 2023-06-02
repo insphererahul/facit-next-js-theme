@@ -11,6 +11,8 @@
 		--#{$prefix}accordion-btn-icon: #{escape-svg($dark-accordion-button-icon)};
 	}
 
+	overflow: auto;
+
 	$self: &;
 
 	@include border-radius(
@@ -20,8 +22,6 @@
 			calc(var(--accordion-border-radius) + var(--accordion-border-width))
 		)
 	);
-
-	overflow: auto;
 
 	&-button {
 		@include dark-mode {

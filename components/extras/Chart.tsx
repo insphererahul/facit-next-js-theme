@@ -18,15 +18,7 @@ interface IChartProps extends HTMLAttributes<HTMLDivElement> {
 	height?: string | number;
 	className?: string;
 }
-const Chart: FC<IChartProps> = ({
-	series,
-	options,
-	type = 'line',
-	width = '100%',
-	height = 'auto',
-	className,
-	...props
-}) => {
+const Chart: FC<IChartProps> = ({ series, options, type, width, height, className, ...props }) => {
 	return (
 		// eslint-disable-next-line react/jsx-props-no-spreading
 		<div className={classNames('apex-chart', className)} {...props}>
@@ -169,6 +161,12 @@ Chart.propTypes = {
 	width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	className: PropTypes.string,
+};
+Chart.defaultProps = {
+	type: 'line',
+	width: '100%',
+	height: 'auto',
+	className: undefined,
 };
 
 /**

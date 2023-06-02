@@ -36,7 +36,7 @@ const Textarea: FC<ITextareaProps> = ({
 	id,
 	name,
 	className,
-	rows = 3,
+	rows,
 	placeholder,
 	autoComplete,
 	ariaDescribedby,
@@ -51,7 +51,7 @@ const Textarea: FC<ITextareaProps> = ({
 	isTouched,
 	invalidFeedback,
 	validFeedback,
-	isValidMessage = true,
+	isValidMessage,
 	isTooltipFeedback,
 	onBlur,
 	onChange,
@@ -160,6 +160,34 @@ Textarea.propTypes = {
 	 * Fires after some text has been selected in an element
 	 */
 	onSelect: PropTypes.func,
+};
+Textarea.defaultProps = {
+	id: undefined,
+	name: undefined,
+	size: undefined,
+	className: undefined,
+	rows: 3,
+	placeholder: undefined,
+	autoComplete: undefined,
+	ariaDescribedby: undefined,
+	ariaLabelledby: undefined,
+	ariaLabel: undefined,
+	title: undefined,
+	disabled: false,
+	readOnly: false,
+	value: undefined,
+	isTouched: false,
+	isValid: false,
+	invalidFeedback: undefined,
+	validFeedback: undefined,
+	isValidMessage: true,
+	isTooltipFeedback: false,
+	onBlur: undefined,
+	onChange: undefined,
+	onFocus: undefined,
+	onInput: undefined,
+	onInvalid: undefined,
+	onSelect: undefined,
 };
 
 export default Textarea;

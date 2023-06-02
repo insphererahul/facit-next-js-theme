@@ -22,7 +22,7 @@ interface IModalTitleProps extends HTMLAttributes<HTMLElement> {
 	tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span';
 }
 export const ModalTitle = forwardRef<HTMLHeadingElement, IModalTitleProps>(
-	({ tag = 'h5', id, children, className, ...props }, ref) => {
+	({ tag, id, children, className, ...props }, ref) => {
 		return (
 			<TagWrapper
 				tag={tag}
@@ -42,6 +42,10 @@ ModalTitle.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
 	tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span']),
+};
+ModalTitle.defaultProps = {
+	className: undefined,
+	tag: 'h5',
 };
 
 interface IModalHeaderProps extends HTMLAttributes<HTMLDivElement> {
@@ -77,6 +81,10 @@ ModalHeader.propTypes = {
 	 */
 	setIsOpen: PropTypes.func,
 };
+ModalHeader.defaultProps = {
+	className: undefined,
+	setIsOpen: undefined,
+};
 
 interface IModalBodyProps extends HTMLAttributes<HTMLDivElement> {
 	children: ReactNode;
@@ -97,6 +105,9 @@ ModalBody.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
 };
+ModalBody.defaultProps = {
+	className: undefined,
+};
 
 interface IModalFooterProps extends HTMLAttributes<HTMLDivElement> {
 	children: ReactNode;
@@ -116,6 +127,9 @@ ModalFooter.displayName = 'ModalFooter';
 ModalFooter.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
+};
+ModalFooter.defaultProps = {
+	className: undefined,
 };
 
 interface IModalProps extends Record<string, any> {
@@ -140,12 +154,12 @@ const Modal: FC<IModalProps> = ({
 	setIsOpen,
 	id,
 	titleId,
-	isStaticBackdrop = false,
-	isScrollable = false,
-	isCentered = false,
+	isStaticBackdrop,
+	isScrollable,
+	isCentered,
 	size,
-	fullScreen = false,
-	isAnimation = true,
+	fullScreen,
+	isAnimation,
 	...props
 }) => {
 	const refModal = useRef(null);
@@ -282,6 +296,16 @@ Modal.propTypes = {
 		PropTypes.bool,
 	]),
 	isAnimation: PropTypes.bool,
+};
+Modal.defaultProps = {
+	id: undefined,
+	isStaticBackdrop: false,
+	isScrollable: false,
+	isCentered: false,
+	size: null,
+	fullScreen: false,
+	isAnimation: true,
+	titleId: undefined,
 };
 
 export default Modal;

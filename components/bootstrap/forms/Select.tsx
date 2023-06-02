@@ -56,7 +56,7 @@ const Select = forwardRef<HTMLSelectElement, ISelectProps>(
 			isTouched,
 			invalidFeedback,
 			validFeedback,
-			isValidMessage = true,
+			isValidMessage,
 			isTooltipFeedback,
 			onBlur,
 			onChange,
@@ -199,6 +199,35 @@ Select.propTypes = {
 	/**
 	 * More information, [react-input-mask](https://github.com/sanniassin/react-input-mask#react-input-mask).
 	 */
+};
+Select.defaultProps = {
+	id: undefined,
+	className: undefined,
+	name: undefined,
+	children: null,
+	placeholder: undefined,
+	multiple: false,
+	size: undefined,
+	disabled: false,
+	required: false,
+	ariaDescribedby: undefined,
+	ariaLabelledby: undefined,
+	title: undefined,
+	value: undefined,
+	defaultValue: undefined,
+	list: undefined,
+	isTouched: false,
+	isValid: false,
+	invalidFeedback: undefined,
+	validFeedback: undefined,
+	isValidMessage: true,
+	isTooltipFeedback: false,
+	onBlur: undefined,
+	onChange: undefined,
+	onFocus: undefined,
+	onInput: undefined,
+	onInvalid: undefined,
+	onSelect: undefined,
 };
 
 export default Select;

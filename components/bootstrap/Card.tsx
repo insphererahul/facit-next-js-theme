@@ -34,7 +34,7 @@ interface ICardLabelProps extends HTMLAttributes<HTMLElement> {
 	pre?: ReactNode;
 }
 export const CardLabel = forwardRef<HTMLDivElement, ICardLabelProps>(
-	({ tag = 'div', className, children, icon, iconColor = 'primary', pre, ...props }, ref) => {
+	({ tag, className, children, icon, iconColor, pre, ...props }, ref) => {
 		return (
 			<TagWrapper
 				ref={ref}
@@ -74,6 +74,13 @@ CardLabel.propTypes = {
 	]),
 	pre: PropTypes.node,
 };
+CardLabel.defaultProps = {
+	className: undefined,
+	tag: 'div',
+	icon: undefined,
+	iconColor: 'primary',
+	pre: null,
+};
 
 interface ICardActionsProps extends HTMLAttributes<HTMLElement> {
 	tag?: string | null;
@@ -81,7 +88,7 @@ interface ICardActionsProps extends HTMLAttributes<HTMLElement> {
 	children: ReactNode;
 }
 export const CardActions = forwardRef<HTMLDivElement, ICardActionsProps>(
-	({ tag = 'div', className, children, ...props }, ref) => {
+	({ tag, className, children, ...props }, ref) => {
 		return (
 			<TagWrapper
 				ref={ref}
@@ -100,6 +107,10 @@ CardActions.propTypes = {
 	className: PropTypes.string,
 	tag: PropTypes.string,
 };
+CardActions.defaultProps = {
+	className: undefined,
+	tag: 'div',
+};
 
 interface ICardTitleProps extends HTMLAttributes<HTMLElement> {
 	tag?: string | null;
@@ -107,7 +118,7 @@ interface ICardTitleProps extends HTMLAttributes<HTMLElement> {
 	children: ReactNode;
 }
 export const CardTitle = forwardRef<HTMLDivElement, ICardTitleProps>(
-	({ tag = 'h5', className, children, ...props }, ref) => {
+	({ tag, className, children, ...props }, ref) => {
 		return (
 			<TagWrapper
 				ref={ref}
@@ -126,6 +137,10 @@ CardTitle.propTypes = {
 	className: PropTypes.string,
 	tag: PropTypes.string,
 };
+CardTitle.defaultProps = {
+	className: undefined,
+	tag: 'h5',
+};
 
 interface ICardSubTitleProps extends HTMLAttributes<HTMLElement> {
 	tag?: string | null;
@@ -133,7 +148,7 @@ interface ICardSubTitleProps extends HTMLAttributes<HTMLElement> {
 	children: ReactNode;
 }
 export const CardSubTitle = forwardRef<HTMLDivElement, ICardSubTitleProps>(
-	({ tag = 'h6', className, children, ...props }, ref) => {
+	({ tag, className, children, ...props }, ref) => {
 		return (
 			<TagWrapper
 				ref={ref}
@@ -152,6 +167,10 @@ CardSubTitle.propTypes = {
 	className: PropTypes.string,
 	tag: PropTypes.string,
 };
+CardSubTitle.defaultProps = {
+	className: undefined,
+	tag: 'h6',
+};
 
 interface ICardHeaderProps extends HTMLAttributes<HTMLElement> {
 	tag?: string | null;
@@ -167,7 +186,7 @@ interface ICardHeaderProps extends HTMLAttributes<HTMLElement> {
 	borderColor?: null | TColor;
 }
 export const CardHeader = forwardRef<HTMLDivElement, ICardHeaderProps>(
-	({ tag = 'div', className, children, size, borderSize, borderColor, ...props }, ref) => {
+	({ tag, className, children, size, borderSize, borderColor, ...props }, ref) => {
 		return (
 			<TagWrapper
 				ref={ref}
@@ -209,6 +228,13 @@ CardHeader.propTypes = {
 	]),
 	size: PropTypes.oneOf([null, 'sm', 'lg']),
 };
+CardHeader.defaultProps = {
+	className: undefined,
+	tag: 'div',
+	borderSize: null,
+	borderColor: null,
+	size: null,
+};
 
 interface ICardBodyProps extends HTMLAttributes<HTMLElement> {
 	tag?: string | null;
@@ -217,7 +243,7 @@ interface ICardBodyProps extends HTMLAttributes<HTMLElement> {
 	children: ReactNode;
 }
 export const CardBody = forwardRef<HTMLDivElement, ICardBodyProps>(
-	({ tag = 'div', className, isScrollable, children, ...props }, ref) => {
+	({ tag, className, isScrollable, children, ...props }, ref) => {
 		return (
 			<TagWrapper
 				ref={ref}
@@ -241,6 +267,11 @@ CardBody.propTypes = {
 	tag: PropTypes.string,
 	isScrollable: PropTypes.bool,
 };
+CardBody.defaultProps = {
+	className: undefined,
+	tag: 'div',
+	isScrollable: false,
+};
 
 interface ICardCodeViewProps {
 	children: string;
@@ -250,7 +281,7 @@ interface ICardCodeViewProps {
 	className?: string;
 }
 export const CardCodeView: FC<ICardCodeViewProps> = memo(
-	({ children, language = 'jsx', customStyle, isPrismJs = true, className }) => {
+	({ children, language, customStyle, isPrismJs, className }) => {
 		if (isPrismJs) {
 			return (
 				<PrismCode
@@ -289,6 +320,11 @@ CardCodeView.propTypes = {
 	// eslint-disable-next-line react/forbid-prop-types
 	customStyle: PropTypes.object,
 };
+CardCodeView.defaultProps = {
+	language: 'jsx',
+	isPrismJs: true,
+	className: undefined,
+};
 
 interface ICardFooterLeftProps extends HTMLAttributes<HTMLElement> {
 	tag?: string | null;
@@ -296,7 +332,7 @@ interface ICardFooterLeftProps extends HTMLAttributes<HTMLElement> {
 	children: ReactNode;
 }
 export const CardFooterLeft = forwardRef<HTMLDivElement, ICardFooterLeftProps>(
-	({ tag = 'div', className, children, ...props }, ref) => {
+	({ tag, className, children, ...props }, ref) => {
 		return (
 			<TagWrapper
 				ref={ref}
@@ -315,6 +351,10 @@ CardFooterLeft.propTypes = {
 	className: PropTypes.string,
 	tag: PropTypes.string,
 };
+CardFooterLeft.defaultProps = {
+	className: undefined,
+	tag: 'div',
+};
 
 interface ICardFooterRightProps extends HTMLAttributes<HTMLElement> {
 	tag?: string | null;
@@ -322,7 +362,7 @@ interface ICardFooterRightProps extends HTMLAttributes<HTMLElement> {
 	children: ReactNode;
 }
 export const CardFooterRight = forwardRef<HTMLDivElement, ICardFooterRightProps>(
-	({ tag = 'div', className, children, ...props }, ref) => {
+	({ tag, className, children, ...props }, ref) => {
 		return (
 			<TagWrapper
 				ref={ref}
@@ -341,6 +381,10 @@ CardFooterRight.propTypes = {
 	className: PropTypes.string,
 	tag: PropTypes.string,
 };
+CardFooterRight.defaultProps = {
+	className: undefined,
+	tag: 'div',
+};
 
 interface ICardFooterProps extends HTMLAttributes<HTMLElement> {
 	tag?: string | null;
@@ -355,7 +399,7 @@ interface ICardFooterProps extends HTMLAttributes<HTMLElement> {
 	borderColor?: null | TColor;
 }
 export const CardFooter = forwardRef<HTMLDivElement, ICardFooterProps>(
-	({ tag = 'div', className, children, size, borderSize, borderColor, ...props }, ref) => {
+	({ tag, className, children, size, borderSize, borderColor, ...props }, ref) => {
 		return (
 			<TagWrapper
 				ref={ref}
@@ -396,6 +440,13 @@ CardFooter.propTypes = {
 	]),
 	size: PropTypes.oneOf([null, 'sm', 'lg']),
 };
+CardFooter.defaultProps = {
+	className: undefined,
+	tag: 'div',
+	borderSize: null,
+	borderColor: null,
+	size: null,
+};
 
 interface ICardTabItemProps {
 	id: string;
@@ -413,6 +464,9 @@ CardTabItem.propTypes = {
 	title: PropTypes.string.isRequired,
 	icon: PropTypes.string,
 	children: PropTypes.node.isRequired,
+};
+CardTabItem.defaultProps = {
+	icon: undefined,
 };
 
 export interface ICardProps extends HTMLAttributes<HTMLElement> {
@@ -433,11 +487,11 @@ export interface ICardProps extends HTMLAttributes<HTMLElement> {
 const Card = forwardRef<HTMLDivElement, ICardProps>(
 	(
 		{
-			tag = 'div',
+			tag,
 			className,
 			children,
 			hasTab,
-			tabButtonColor = 'primary',
+			tabButtonColor,
 			tabBodyClassName,
 			shadow,
 			borderSize,
@@ -551,6 +605,18 @@ Card.propTypes = {
 	// @ts-ignore
 	stretch: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['full', 'semi'])]),
 	isCompact: PropTypes.bool,
+};
+Card.defaultProps = {
+	className: undefined,
+	shadow: null,
+	borderSize: null,
+	borderColor: null,
+	tag: 'div',
+	hasTab: false,
+	tabButtonColor: 'primary',
+	tabBodyClassName: undefined,
+	stretch: false,
+	isCompact: false,
 };
 
 export default Card;
