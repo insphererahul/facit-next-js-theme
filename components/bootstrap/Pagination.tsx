@@ -75,6 +75,17 @@ PaginationItem.propTypes = {
 	children: PropTypes.node,
 	onClick: PropTypes.func,
 };
+PaginationItem.defaultProps = {
+	className: undefined,
+	isDisabled: false,
+	isActive: false,
+	isPrev: false,
+	isFirst: false,
+	isNext: false,
+	isLast: false,
+	children: null,
+	onClick: undefined,
+};
 
 interface IPaginationProps extends HTMLAttributes<HTMLElement> {
 	ariaLabel: string;
@@ -104,6 +115,10 @@ Pagination.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
 	size: PropTypes.oneOf(['sm', 'lg']),
+};
+Pagination.defaultProps = {
+	className: undefined,
+	size: null,
 };
 
 export default Pagination;

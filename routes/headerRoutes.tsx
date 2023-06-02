@@ -1,5 +1,10 @@
 import React from 'react';
-import { componentPagesMenu, dashboardPagesMenu, demoPagesMenu, pageLayoutTypesPagesMenu } from '../menu';
+import {
+	componentPagesMenu,
+	dashboardPagesMenu,
+	demoPagesMenu,
+	pageLayoutTypesPagesMenu,
+} from '../menu';
 import DashboardHeader from '../pages/_layout/_headers/DashboardHeader';
 import DashboardBookingHeader from '../pages/_layout/_headers/DashboardBookingHeader';
 import ProfilePageHeader from '../pages/_layout/_headers/ProfilePageHeader';

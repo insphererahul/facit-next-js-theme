@@ -10,10 +10,10 @@ interface IValidationProps {
 }
 // @ts-ignore
 const Validation: FC<IValidationProps> = ({
-	isTouched = false,
+	isTouched,
 	invalidFeedback,
 	validFeedback,
-	isTooltip = false,
+	isTooltip,
 }) => {
 	const ref = useRef(null);
 
@@ -64,6 +64,12 @@ Validation.propTypes = {
 	invalidFeedback: PropTypes.string,
 	validFeedback: PropTypes.string,
 	isTooltip: PropTypes.bool,
+};
+Validation.defaultProps = {
+	isTouched: false,
+	invalidFeedback: undefined,
+	validFeedback: undefined,
+	isTooltip: false,
 };
 
 export default Validation;

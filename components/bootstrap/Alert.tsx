@@ -12,12 +12,7 @@ interface IAlertHeadingProps extends Record<string, any> {
 	className?: string;
 	tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | null;
 }
-export const AlertHeading: FC<IAlertHeadingProps> = ({
-	className,
-	children,
-	tag = 'h4',
-	...props
-}) => {
+export const AlertHeading: FC<IAlertHeadingProps> = ({ className, children, tag, ...props }) => {
 	return (
 		// eslint-disable-next-line react/jsx-props-no-spreading
 		<TagWrapper tag={tag} className={classNames('alert-heading', className)} {...props}>
@@ -29,6 +24,10 @@ AlertHeading.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
 	tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
+};
+AlertHeading.defaultProps = {
+	className: undefined,
+	tag: 'h4',
 };
 
 interface IAlertLinkProps extends Record<string, any> {
@@ -60,6 +59,11 @@ AlertLink.propTypes = {
 	href: PropTypes.string,
 	to: PropTypes.string,
 };
+AlertLink.defaultProps = {
+	className: undefined,
+	href: undefined,
+	to: null,
+};
 
 interface IAlertProps extends Record<string, any> {
 	className?: string;
@@ -76,7 +80,7 @@ interface IAlertProps extends Record<string, any> {
 const Alert: FC<IAlertProps> = ({
 	children,
 	className,
-	color = 'primary',
+	color,
 	isDismissible,
 	isOutline,
 	isLight,
@@ -160,6 +164,17 @@ Alert.propTypes = {
 	isOutline: PropTypes.bool,
 	shadow: PropTypes.oneOf([null, 'sm', 'md', 'lg', '3d']),
 	rounded: PropTypes.oneOf([null, 'default', 0, 1, 2, 3, 'pill']),
+};
+Alert.defaultProps = {
+	borderWidth: null,
+	className: undefined,
+	color: 'primary',
+	icon: undefined,
+	isDismissible: false,
+	isLight: false,
+	isOutline: false,
+	shadow: null,
+	rounded: null,
 };
 
 export default Alert;

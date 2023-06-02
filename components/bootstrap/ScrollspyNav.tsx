@@ -11,7 +11,7 @@ interface IScrollspyNavProps {
 	setActiveId?(...args: unknown[]): unknown | undefined;
 }
 const ScrollspyNav: FC<IScrollspyNavProps> = ({
-	tag = 'span',
+	tag,
 	items,
 	children,
 	offset,
@@ -53,6 +53,12 @@ ScrollspyNav.propTypes = {
 	offset: PropTypes.number,
 	tag: PropTypes.string,
 	setActiveId: PropTypes.func,
+};
+ScrollspyNav.defaultProps = {
+	children: null,
+	offset: undefined,
+	tag: 'span',
+	setActiveId: undefined,
 };
 
 export default ScrollspyNav;

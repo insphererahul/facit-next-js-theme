@@ -60,6 +60,13 @@ ButtonGroup.propTypes = {
 	size: PropTypes.oneOf(['sm', 'lg']),
 	ariaLabel: PropTypes.string,
 };
+ButtonGroup.defaultProps = {
+	className: undefined,
+	isToolbar: false,
+	isVertical: false,
+	size: null,
+	ariaLabel: undefined,
+};
 
 export interface IButtonProps
 	extends HTMLAttributes<
@@ -103,8 +110,8 @@ const Button = forwardRef<HTMLAnchorElement, IButtonProps>(
 	(
 		{
 			children,
-			tag = 'button',
-			type = 'button',
+			tag,
+			type,
 			to,
 			href,
 			isActive,
@@ -314,6 +321,27 @@ Button.propTypes = {
 		PropTypes.string,
 	]),
 	isVisuallyHidden: PropTypes.bool,
+};
+Button.defaultProps = {
+	children: null,
+	tag: 'button',
+	type: 'button',
+	to: undefined,
+	href: undefined,
+	isActive: false,
+	color: undefined,
+	isOutline: false,
+	isLight: false,
+	isLink: false,
+	className: undefined,
+	icon: undefined,
+	rounded: null,
+	size: null,
+	isDisable: false,
+	shadow: null,
+	hoverShadow: null,
+	target: undefined,
+	isVisuallyHidden: false,
 };
 
 export default Button;

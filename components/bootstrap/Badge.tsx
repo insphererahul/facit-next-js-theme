@@ -27,7 +27,7 @@ interface IBadgeProps extends Record<string, any> {
 const Badge: FC<IBadgeProps> = ({
 	children,
 	className,
-	color = 'primary',
+	color,
 	shadow,
 	rounded,
 	isLight,
@@ -87,6 +87,13 @@ Badge.propTypes = {
 	]),
 	shadow: PropTypes.oneOf([null, 'none', 'sm', 'default', 'lg']),
 	isLight: PropTypes.bool,
+};
+Badge.defaultProps = {
+	className: undefined,
+	color: 'primary',
+	rounded: null,
+	shadow: null,
+	isLight: false,
 };
 
 export default Badge;

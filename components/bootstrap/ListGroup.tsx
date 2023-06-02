@@ -13,7 +13,7 @@ interface IListGroupItemProps extends HTMLAttributes<HTMLElement> {
 	isDisable?: boolean;
 }
 export const ListGroupItem = forwardRef<HTMLDivElement, IListGroupItemProps>(
-	({ tag = 'li', children, className, color, isActive, isDisable, ...props }, ref) => {
+	({ tag, children, className, color, isActive, isDisable, ...props }, ref) => {
 		return (
 			<TagWrapper
 				ref={ref}
@@ -53,6 +53,13 @@ ListGroupItem.propTypes = {
 	isActive: PropTypes.bool,
 	isDisable: PropTypes.bool,
 };
+ListGroupItem.defaultProps = {
+	className: undefined,
+	tag: 'li',
+	color: undefined,
+	isActive: false,
+	isDisable: false,
+};
 
 interface IListGroupProps extends HTMLAttributes<HTMLElement> {
 	children: ReactElement<IListGroupItemProps> | ReactElement<IListGroupItemProps>[];
@@ -63,7 +70,7 @@ interface IListGroupProps extends HTMLAttributes<HTMLElement> {
 	isNumbered?: boolean;
 }
 const ListGroup = forwardRef<HTMLDivElement, IListGroupProps>(
-	({ children, className, tag = 'ul', isHorizontal, isFlush, isNumbered, ...props }, ref) => {
+	({ children, className, tag, isHorizontal, isFlush, isNumbered, ...props }, ref) => {
 		return (
 			<TagWrapper
 				ref={ref}
@@ -101,6 +108,13 @@ ListGroup.propTypes = {
 		PropTypes.oneOf(['sm', 'md', 'lg', 'xl', 'xxl']),
 	]),
 	isNumbered: PropTypes.bool,
+};
+ListGroup.defaultProps = {
+	className: undefined,
+	tag: 'ul',
+	isHorizontal: false,
+	isFlush: false,
+	isNumbered: false,
 };
 
 export default ListGroup;

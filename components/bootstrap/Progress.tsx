@@ -32,9 +32,9 @@ interface IProgressProps extends HTMLAttributes<HTMLDivElement> {
 const Progress = forwardRef<HTMLDivElement, IProgressProps>(
 	(
 		{
-			value = 0,
-			min = 0,
-			max = 100,
+			value,
+			min,
+			max,
 			height,
 			isStriped,
 			isAnimated,
@@ -141,6 +141,18 @@ Progress.propTypes = {
 	// @ts-ignore
 	children: PropTypes.node,
 	className: PropTypes.string,
+};
+Progress.defaultProps = {
+	value: 0,
+	min: 0,
+	max: 100,
+	height: null,
+	isStriped: false,
+	isAnimated: false,
+	isAutoColor: false,
+	color: undefined,
+	children: undefined,
+	className: undefined,
 };
 
 export default Progress;

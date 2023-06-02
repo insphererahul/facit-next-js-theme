@@ -25,7 +25,7 @@ interface IOffCanvasTitleProps extends HTMLAttributes<HTMLElement> {
 	tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span';
 }
 export const OffCanvasTitle = forwardRef<HTMLHeadingElement, IOffCanvasTitleProps>(
-	({ tag = 'h5', id, children, className, ...props }, ref) => {
+	({ tag, id, children, className, ...props }, ref) => {
 		return (
 			<TagWrapper
 				tag={tag}
@@ -45,6 +45,10 @@ OffCanvasTitle.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
 	tag: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span']),
+};
+OffCanvasTitle.defaultProps = {
+	className: undefined,
+	tag: 'h5',
 };
 
 interface IOffCanvasHeaderProps extends HTMLAttributes<HTMLDivElement> {
@@ -77,6 +81,10 @@ OffCanvasHeader.propTypes = {
 	className: PropTypes.string,
 	setOpen: PropTypes.func,
 };
+OffCanvasHeader.defaultProps = {
+	className: undefined,
+	setOpen: undefined,
+};
 
 interface IOffCanvasBodyProps extends HTMLAttributes<HTMLElement> {
 	tag?: 'div' | 'span' | 'section' | 'form';
@@ -85,7 +93,7 @@ interface IOffCanvasBodyProps extends HTMLAttributes<HTMLElement> {
 	onSubmit?(...args: unknown[]): unknown;
 }
 export const OffCanvasBody = forwardRef<HTMLDivElement, IOffCanvasBodyProps>(
-	({ tag = 'div', children, className, ...props }, ref) => {
+	({ tag, children, className, ...props }, ref) => {
 		return (
 			<TagWrapper
 				tag={tag}
@@ -103,6 +111,10 @@ OffCanvasBody.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
 	tag: PropTypes.oneOf(['div', 'span', 'section', 'form']),
+};
+OffCanvasBody.defaultProps = {
+	className: undefined,
+	tag: 'div',
 };
 
 interface IOffCanvasProps extends HTMLAttributes<HTMLElement> {
@@ -128,16 +140,16 @@ interface IOffCanvasProps extends HTMLAttributes<HTMLElement> {
 }
 const OffCanvas: FC<IOffCanvasProps> = ({
 	id,
-	titleId = null,
+	titleId,
 	children,
-	placement = 'end',
-	isBodyScroll = false,
-	isBackdrop = true,
-	isModalStyle = false,
+	placement,
+	isBodyScroll,
+	isBackdrop,
+	isModalStyle,
 	isOpen,
 	setOpen,
-	isRightPanel = false,
-	tag: Tag = 'div',
+	isRightPanel,
+	tag: Tag,
 	...props
 }) => {
 	const initialProps = {
@@ -241,6 +253,16 @@ OffCanvas.propTypes = {
 	isModalStyle: PropTypes.bool,
 	isRightPanel: PropTypes.bool,
 	tag: PropTypes.oneOf(['div', 'section', 'form']),
+};
+OffCanvas.defaultProps = {
+	id: undefined,
+	placement: 'end',
+	titleId: null,
+	isBodyScroll: false,
+	isBackdrop: true,
+	isModalStyle: false,
+	isRightPanel: false,
+	tag: 'div',
 };
 
 export default OffCanvas;

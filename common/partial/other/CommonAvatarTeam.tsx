@@ -51,5 +51,9 @@ CommonAvatarTeam.propTypes = {
 	children: PropTypes.node,
 	isAlignmentEnd: PropTypes.bool,
 };
+CommonAvatarTeam.defaultProps = {
+	children: undefined,
+	isAlignmentEnd: false,
+};
 
 export default memo(CommonAvatarTeam);

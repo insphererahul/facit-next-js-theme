@@ -30,20 +30,7 @@ interface ISpinnerProps {
 	className?: string;
 }
 const Spinner = forwardRef<HTMLDivElement, ISpinnerProps>(
-	(
-		{
-			tag = 'div',
-			color,
-			isGrow,
-			isSmall,
-			size,
-			children = 'Loading...',
-			inButton,
-			className,
-			...props
-		},
-		ref,
-	) => {
+	({ tag, color, isGrow, isSmall, size, children, inButton, className, ...props }, ref) => {
 		const { mounted } = useMounted();
 
 		// @ts-ignore
@@ -97,6 +84,16 @@ Spinner.propTypes = {
 	// @ts-ignore
 	inButton: PropTypes.oneOfType([PropTypes.bool, PropTypes.oneOf(['onlyIcon'])]),
 	className: PropTypes.string,
+};
+Spinner.defaultProps = {
+	children: 'Loading...',
+	tag: 'div',
+	color: null,
+	isGrow: false,
+	isSmall: false,
+	size: null,
+	inButton: false,
+	className: undefined,
 };
 
 export default Spinner;

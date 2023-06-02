@@ -35,5 +35,10 @@ CarouselControl.propTypes = {
 	directionText: PropTypes.string,
 	className: PropTypes.string,
 };
+CarouselControl.defaultProps = {
+	id: undefined,
+	directionText: undefined,
+	className: undefined,
+};
 
 export default CarouselControl;

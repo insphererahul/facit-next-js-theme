@@ -19,17 +19,12 @@ const Tooltips: FC<ITooltipsProps> = ({
 	children,
 	className,
 	title,
-	placement = 'top',
-	flip = ['top', 'bottom'],
-	delay = 0,
+	placement,
+	flip,
+	delay,
 	isDisplayInline,
 	isDisableElements,
-	modifiers = {
-		name: 'example',
-		enabled: false,
-		phase: 'read',
-		fn: () => {},
-	},
+	modifiers,
 }) => {
 	const [referenceElement, setReferenceElement] = useState(null);
 	const [popperElement, setPopperElement] = useState(null);
@@ -162,6 +157,21 @@ Tooltips.propTypes = {
 	// eslint-disable-next-line react/forbid-prop-types
 	modifiers: PropTypes.object,
 	isDisableElements: PropTypes.bool,
+};
+Tooltips.defaultProps = {
+	placement: 'top',
+	// @ts-ignore
+	flip: ['top', 'bottom'],
+	delay: 0,
+	isDisplayInline: false,
+	className: undefined,
+	modifiers: {
+		name: 'example',
+		enabled: false,
+		phase: 'read',
+		fn: () => {},
+	},
+	isDisableElements: false,
 };
 
 export default Tooltips;

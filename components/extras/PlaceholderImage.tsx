@@ -10,8 +10,8 @@ interface IPlaceholderImageProps extends HTMLAttributes<HTMLOrSVGElement> {
 	ariaLabel?: string;
 }
 const PlaceholderImage: FC<IPlaceholderImageProps> = ({
-	width = 75,
-	height = 75,
+	width,
+	height,
 	text,
 	className,
 	ariaLabel,
@@ -47,6 +47,13 @@ PlaceholderImage.propTypes = {
 	text: PropTypes.string,
 	className: PropTypes.string,
 	ariaLabel: PropTypes.string,
+};
+PlaceholderImage.defaultProps = {
+	width: 75,
+	height: 75,
+	text: undefined,
+	className: undefined,
+	ariaLabel: undefined,
 };
 
 export default PlaceholderImage;

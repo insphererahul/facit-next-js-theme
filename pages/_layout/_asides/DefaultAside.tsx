@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import classNames from 'classnames';
 import { useTranslation } from 'next-i18next';
-import ReactGA from 'react-ga4';
 import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Brand from '../../../layout/Brand/Brand';
@@ -94,11 +93,6 @@ const DefaultAside = () => {
 							onClick={() => {
 								localStorage.setItem('facit_asideDocStatus', String(!doc));
 								setDoc(!doc);
-								ReactGA.event({
-									category: 'Documentation',
-									action: 'TEST - Documentation Start',
-									label: 'Documentation Button',
-								});
 							}}
 							data-tour='documentation'>
 							<span className='navigation-link navigation-link-pill'>

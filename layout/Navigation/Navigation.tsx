@@ -33,19 +33,7 @@ interface IListProps extends HTMLAttributes<HTMLUListElement> {
 	horizontal?: boolean;
 }
 export const List = forwardRef<HTMLUListElement, IListProps>(
-	(
-		{
-			id,
-			children = null,
-			className,
-			ariaLabelledby,
-			parentId,
-			rootId,
-			horizontal = false,
-			...props
-		},
-		ref,
-	) => {
+	({ id, children, className, ariaLabelledby, parentId, rootId, horizontal, ...props }, ref) => {
 		return (
 			<ul
 				ref={ref}
@@ -74,6 +62,15 @@ List.propTypes = {
 	rootId: PropTypes.string,
 	horizontal: PropTypes.bool,
 };
+List.defaultProps = {
+	id: undefined,
+	children: null,
+	className: undefined,
+	ariaLabelledby: undefined,
+	parentId: undefined,
+	rootId: undefined,
+	horizontal: false,
+};
 
 interface IItemProps {
 	children?: ReactNode;
@@ -92,7 +89,7 @@ interface IItemProps {
 	setActiveItem?(...args: unknown[]): unknown;
 }
 export const Item: FC<IItemProps> = ({
-	children = null,
+	children,
 	to,
 	as,
 	title,
@@ -100,10 +97,10 @@ export const Item: FC<IItemProps> = ({
 	id,
 	parentId,
 	rootId,
-	isHorizontal = false,
-	notification = false,
-	isMore = false,
-	hide = false,
+	isHorizontal,
+	notification,
+	isMore,
+	hide,
 	...props
 }) => {
 	const { darkModeStatus } = useDarkMode();
@@ -325,6 +322,18 @@ Item.propTypes = {
 	isMore: PropTypes.bool,
 	hide: PropTypes.bool,
 };
+Item.defaultProps = {
+	children: null,
+	to: undefined,
+	title: undefined,
+	icon: undefined,
+	id: undefined,
+	parentId: undefined,
+	isHorizontal: false,
+	notification: false,
+	isMore: false,
+	hide: false,
+};
 
 interface INavigationLineProps {
 	className?: string;
@@ -334,6 +343,9 @@ export const NavigationLine: FC<INavigationLineProps> = ({ className }) => {
 };
 NavigationLine.propTypes = {
 	className: PropTypes.string,
+};
+NavigationLine.defaultProps = {
+	className: undefined,
 };
 
 interface INavigationTitleProps extends HTMLAttributes<HTMLSpanElement> {
@@ -353,6 +365,9 @@ export const NavigationTitle: FC<INavigationTitleProps> = ({ className, children
 NavigationTitle.propTypes = {
 	children: PropTypes.node.isRequired,
 	className: PropTypes.string,
+};
+NavigationTitle.defaultProps = {
+	className: undefined,
 };
 
 interface INavigationProps {
@@ -379,7 +394,7 @@ interface INavigationProps {
 	className?: string;
 }
 const Navigation = forwardRef<HTMLElement, INavigationProps>(
-	({ menu, horizontal = false, id, className, ...props }, ref) => {
+	({ menu, horizontal, id, className, ...props }, ref) => {
 		const [activeItem, setActiveItem] = useState(undefined);
 
 		const { t } = useTranslation('menu');
@@ -485,6 +500,10 @@ Navigation.propTypes = {
 	}).isRequired,
 	id: PropTypes.string.isRequired,
 	className: PropTypes.string,
+};
+Navigation.defaultProps = {
+	horizontal: false,
+	className: undefined,
 };
 
 export default Navigation;

@@ -16,7 +16,7 @@
 
 // For only Safari
 @mixin only-safari() {
-	@media not all and (resolution >= 0.001dpcm) {
+	@media not all and (min-resolution: 0.001dpcm) {
 		@supports (-webkit-appearance: none) {
 			@content;
 		}

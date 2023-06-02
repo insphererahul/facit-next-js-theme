@@ -65,7 +65,7 @@ export interface IInputProps extends HTMLAttributes<HTMLInputElement>, Partial<I
 const Input = forwardRef<HTMLInputElement, IInputProps>(
 	(
 		{
-			type = 'text',
+			type,
 			id,
 			name,
 			className,
@@ -89,7 +89,7 @@ const Input = forwardRef<HTMLInputElement, IInputProps>(
 			isTouched,
 			invalidFeedback,
 			validFeedback,
-			isValidMessage = true,
+			isValidMessage,
 			isTooltipFeedback,
 			onBlur,
 			onChange,
@@ -322,6 +322,43 @@ Input.propTypes = {
 	 * More information, [react-number-format](https://github.com/s-yadav/react-number-format#readme).
 	 */
 	format: PropTypes.string,
+};
+Input.defaultProps = {
+	component: undefined,
+	type: 'text',
+	id: undefined,
+	name: undefined,
+	size: null,
+	className: undefined,
+	required: false,
+	placeholder: undefined,
+	title: undefined,
+	list: undefined,
+	autoComplete: undefined,
+	disabled: false,
+	multiple: false,
+	readOnly: false,
+	ariaDescribedby: undefined,
+	ariaLabelledby: undefined,
+	ariaLabel: undefined,
+	value: undefined,
+	min: undefined,
+	max: undefined,
+	step: undefined,
+	isTouched: false,
+	isValid: false,
+	invalidFeedback: undefined,
+	validFeedback: undefined,
+	isValidMessage: true,
+	isTooltipFeedback: false,
+	onBlur: undefined,
+	onChange: undefined,
+	onFocus: undefined,
+	onInput: undefined,
+	onInvalid: undefined,
+	onSelect: undefined,
+	mask: undefined,
+	format: undefined,
 };
 
 export default Input;

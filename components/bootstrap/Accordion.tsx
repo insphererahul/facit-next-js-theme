@@ -30,10 +30,7 @@ interface IAccordionItemProps {
 	setActiveItem?: any;
 }
 export const AccordionItem = forwardRef<HTMLDivElement, IAccordionItemProps>(
-	(
-		{ id, icon, title, children, tag = 'div', headerTag = 'h2', overWriteColor, ...props },
-		ref,
-	) => {
+	({ id, icon, title, children, tag, headerTag, overWriteColor, ...props }, ref) => {
 		// eslint-disable-next-line react/prop-types
 		const ACTIVE = props.activeItem === id;
 
@@ -108,6 +105,13 @@ AccordionItem.propTypes = {
 		'dark',
 	]),
 };
+AccordionItem.defaultProps = {
+	parentId: null,
+	icon: undefined,
+	tag: 'div',
+	headerTag: 'h2',
+	overWriteColor: null,
+};
 
 interface IAccordionProps {
 	tag?: 'div' | 'section';
@@ -120,19 +124,7 @@ interface IAccordionProps {
 	className?: string;
 }
 const Accordion = forwardRef<HTMLDivElement | HTMLTableSectionElement, IAccordionProps>(
-	(
-		{
-			tag = 'div',
-			id,
-			activeItemId,
-			children,
-			shadow = 'default',
-			color = 'primary',
-			isFlush,
-			className,
-		},
-		ref,
-	) => {
+	({ tag, id, activeItemId, children, shadow, color, isFlush, className }, ref) => {
 		const [activeItem, setActiveItem] = useState<TActiveItemId>(
 			activeItemId === false
 				? null
@@ -202,6 +194,14 @@ Accordion.propTypes = {
 		'light',
 		'dark',
 	]),
+};
+Accordion.defaultProps = {
+	activeItemId: null,
+	isFlush: false,
+	className: undefined,
+	tag: 'div',
+	shadow: 'default',
+	color: 'primary',
 };
 
 export default Accordion;

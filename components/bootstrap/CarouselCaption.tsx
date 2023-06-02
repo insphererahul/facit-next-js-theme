@@ -21,5 +21,9 @@ CarouselCaption.propTypes = {
 	captionText: PropTypes.node.isRequired,
 	className: PropTypes.string,
 };
+CarouselCaption.defaultProps = {
+	captionHeader: null,
+	className: undefined,
+};
 
 export default CarouselCaption;

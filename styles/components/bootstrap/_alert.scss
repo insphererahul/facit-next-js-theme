@@ -6,11 +6,11 @@
 	// Generate contextual modifier classes for colorizing the alert
 	@each $state in map-keys($theme-colors) {
 		&.alert-#{$state} {
-			--#{$prefix}alert-bg: var(--#{$prefix}#{$state});
 			@include dark-mode {
 				--#{$prefix}alert-bg: var(--#{$prefix}#{$state}-border-subtle);
 				--#{$prefix}alert-border-color: var(--#{$prefix}#{$state});
 			}
+			--#{$prefix}alert-bg: var(--#{$prefix}#{$state});
 		}
 	}
 

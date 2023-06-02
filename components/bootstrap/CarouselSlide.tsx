@@ -18,5 +18,8 @@ CarouselSlide.propTypes = {
 	children: PropTypes.node,
 	background: PropTypes.string,
 };
-
+CarouselSlide.defaultProps = {
+	children: undefined,
+	background: undefined,
+};
 export default CarouselSlide;

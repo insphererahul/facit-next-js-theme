@@ -25,7 +25,7 @@ export const BreadcrumbItem: FC<IBreadcrumbItemProps> = ({
 	children,
 	ariaLabel,
 	className,
-	tag = 'li',
+	tag,
 	to,
 	isActive,
 	divider,
@@ -61,6 +61,13 @@ BreadcrumbItem.propTypes = {
 	// @ts-ignore
 	divider: PropTypes.node,
 };
+BreadcrumbItem.defaultProps = {
+	className: undefined,
+	ariaLabel: undefined,
+	tag: 'li',
+	isActive: false,
+	divider: undefined,
+};
 
 // TODO:: children or list req
 interface IBreadcrumbProps extends Record<string, any> {
@@ -81,13 +88,13 @@ interface IBreadcrumbProps extends Record<string, any> {
 const Breadcrumb: FC<IBreadcrumbProps> = ({
 	children,
 	list,
-	tag = 'nav',
-	listTag = 'ol',
-	itemTag = 'li',
-	ariaLabel = 'breadcrumb',
-	autoActive = true,
-	isToHome = <Icon icon='HolidayVillage' />,
-	divider = <Icon icon='ChevronRight' />,
+	tag,
+	listTag,
+	itemTag,
+	ariaLabel,
+	autoActive,
+	isToHome,
+	divider,
 }) => {
 	const DIVIDER = divider !== 'string' && divider;
 	return (
@@ -161,6 +168,17 @@ Breadcrumb.propTypes = {
 	 */
 	// @ts-ignore
 	divider: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+};
+Breadcrumb.defaultProps = {
+	children: undefined,
+	tag: 'nav',
+	listTag: 'ol',
+	itemTag: 'li',
+	ariaLabel: 'breadcrumb',
+	list: undefined,
+	autoActive: true,
+	isToHome: <Icon icon='HolidayVillage' />,
+	divider: <Icon icon='ChevronRight' />,
 };
 
 export default Breadcrumb;

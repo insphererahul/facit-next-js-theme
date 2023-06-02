@@ -20,7 +20,7 @@ const TransferAction: FC<ITransferActionProps> = ({
 	status,
 	img,
 	className,
-	imgWidth = 150,
+	imgWidth,
 }) => {
 	const { darkModeStatus } = useDarkMode();
 
@@ -90,6 +90,10 @@ TransferAction.propTypes = {
 	img: PropTypes.string.isRequired,
 	className: PropTypes.string,
 	imgWidth: PropTypes.number,
+};
+TransferAction.defaultProps = {
+	className: undefined,
+	imgWidth: 150,
 };
 
 export default TransferAction;

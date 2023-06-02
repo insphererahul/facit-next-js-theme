@@ -108,5 +108,13 @@ UserContact.propTypes = {
 	phone: PropTypes.string,
 	onChat: PropTypes.func,
 };
+UserContact.defaultProps = {
+	className: undefined,
+	position: undefined,
+	color: undefined,
+	mail: undefined,
+	phone: undefined,
+	onChat: undefined,
+};
 
 export default UserContact;

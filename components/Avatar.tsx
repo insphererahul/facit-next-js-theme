@@ -11,7 +11,7 @@ interface IAvatarGroupProps {
 	children: ReactNode[];
 	size?: number;
 }
-export const AvatarGroup: FC<IAvatarGroupProps> = ({ className, children, size = 32 }) => {
+export const AvatarGroup: FC<IAvatarGroupProps> = ({ className, children, size }) => {
 	const { darkModeStatus } = useDarkMode();
 
 	return (
@@ -57,6 +57,10 @@ AvatarGroup.propTypes = {
 	className: PropTypes.string,
 	size: PropTypes.number,
 };
+AvatarGroup.defaultProps = {
+	className: undefined,
+	size: 32,
+};
 
 interface IAvatarProps extends HTMLAttributes<HTMLImageElement> {
 	border?: null | 0 | 1 | 2 | 3 | 4 | 5;
@@ -74,10 +78,10 @@ interface IAvatarProps extends HTMLAttributes<HTMLImageElement> {
 const Avatar: FC<IAvatarProps> = ({
 	src,
 	className,
-	size = 128,
-	rounded = 'circle',
+	size,
+	rounded,
 	shadow,
-	color = 'primary',
+	color,
 	border,
 	borderColor,
 	userName,
@@ -173,6 +177,18 @@ Avatar.propTypes = {
 	userName: PropTypes.string,
 	isOnline: PropTypes.bool,
 	isReply: PropTypes.bool,
+};
+Avatar.defaultProps = {
+	className: undefined,
+	size: 128,
+	rounded: 'circle',
+	color: 'primary',
+	shadow: null,
+	border: null,
+	borderColor: null,
+	userName: null,
+	isOnline: false,
+	isReply: false,
 };
 
 export default Avatar;

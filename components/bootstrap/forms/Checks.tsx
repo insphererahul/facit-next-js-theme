@@ -86,6 +86,16 @@ ChecksGroup.propTypes = {
 	validFeedback: PropTypes.string,
 	isTooltipFeedback: PropTypes.bool,
 };
+ChecksGroup.defaultProps = {
+	id: undefined,
+	className: undefined,
+	isInline: false,
+	isTouched: false,
+	isValid: false,
+	invalidFeedback: undefined,
+	validFeedback: undefined,
+	isTooltipFeedback: false,
+};
 
 export interface IChecksProps extends HTMLAttributes<HTMLInputElement> {
 	id?: string | undefined;
@@ -118,7 +128,7 @@ const Checks = forwardRef<HTMLInputElement, IChecksProps>(
 			id,
 			className,
 			name,
-			type = 'checkbox',
+			type,
 			label,
 			value,
 			checked,
@@ -129,7 +139,7 @@ const Checks = forwardRef<HTMLInputElement, IChecksProps>(
 			isTouched,
 			invalidFeedback,
 			validFeedback,
-			isValidMessage = true,
+			isValidMessage,
 			isTooltipFeedback,
 			onBlur,
 			onChange,
@@ -225,6 +235,30 @@ Checks.propTypes = {
 	onInvalid: PropTypes.func,
 	onSelect: PropTypes.func,
 	ariaLabel: PropTypes.string,
+};
+Checks.defaultProps = {
+	id: undefined,
+	className: undefined,
+	name: null,
+	type: 'checkbox',
+	label: null,
+	checked: false,
+	disabled: false,
+	isInline: false,
+	isFormCheckInput: false,
+	isTouched: false,
+	isValid: false,
+	invalidFeedback: undefined,
+	validFeedback: undefined,
+	isValidMessage: true,
+	isTooltipFeedback: false,
+	onBlur: undefined,
+	onChange: undefined,
+	onFocus: undefined,
+	onInput: undefined,
+	onInvalid: undefined,
+	onSelect: undefined,
+	ariaLabel: undefined,
 };
 
 export default Checks;

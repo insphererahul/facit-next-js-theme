@@ -5,7 +5,7 @@ interface ILogoProps {
 	width?: number;
 	height?: number;
 }
-const Logo: FC<ILogoProps> = ({ width = 2155, height = 854 }) => {
+const Logo: FC<ILogoProps> = ({ width, height }) => {
 	return (
 		<svg
 			width={height !== 854 && !!height ? height * (2155 / 854) : width}
@@ -51,6 +51,10 @@ const Logo: FC<ILogoProps> = ({ width = 2155, height = 854 }) => {
 Logo.propTypes = {
 	width: PropTypes.number,
 	height: PropTypes.number,
+};
+Logo.defaultProps = {
+	width: 2155,
+	height: 854,
 };
 
 export default Logo;

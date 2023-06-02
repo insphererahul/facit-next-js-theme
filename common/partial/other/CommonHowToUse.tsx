@@ -57,5 +57,8 @@ CommonHowToUse.propTypes = {
 	children: PropTypes.string.isRequired,
 	isPrism: PropTypes.bool,
 };
+CommonHowToUse.defaultProps = {
+	isPrism: false,
+};
 
 export default CommonHowToUse;
